@@ -7,7 +7,7 @@ body {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #00AADF; }
+  color: #157878; }
 
 a {
   color: #FF8000;
@@ -15,7 +15,7 @@ a {
   text-decoration: none; }
 
 
-a.hover {
+a:hover {
   color: #fff;
   background: #FF8000;
   border-bottom: 1px dotted #FF8000;
