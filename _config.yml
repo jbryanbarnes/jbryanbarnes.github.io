@@ -21,9 +21,5 @@ markdown: kramdown
 social:
   - title: linkedin
     url: https://linkedin.com/in/jbryanbarnes
-  - title: twitter
-    url: https://twitter.com/jbryanbarnes
-  - title: instagram
-    url: https://instagram.com/jbryanbarnes
   - title: github
     url: https://github.com/jbryanbarnes
