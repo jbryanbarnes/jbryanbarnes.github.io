@@ -1,0 +1,25 @@
+- company: “University of Maryland Baltimore County”
+  title: “Director of Digital Strategy”
+  dates: “Mar 2019 – Present”
+  location: “Baltimore, MD (Remote)”
+  bullets:
+    - “Led integrated digital strategy aligning with UMBC’s marketing goals”
+    - “Managed brand fidelity across web, email, social and analytics”
+    - “Spearheaded Salesforce Marketing Cloud automation to boost conversions”
+    - “Supervised a cross-functional digital team (UX, web dev, ops, automation)”
+- company: “Major League Baseball – Baltimore Orioles”
+  title: “In-Game Coordinator”
+  dates: “Feb 2018 – Jul 2019”
+  location: “Baltimore, MD (Hybrid)”
+  bullets:
+    - “Ran in-game social media for 3M+ fans on Facebook, Twitter and Instagram”
+    - “Created visual brand assets to elevate fan engagement”
+    - “Streamlined social strategy through analytics and process improvements”
+- company: “National Aquarium”
+  title: “Director of Digital”
+  dates: “Apr 2013 – Jul 2017”
+  location: “Baltimore, MD (On-site)”
+  bullets:
+    - “Oversaw digital comms team for aqua.org (5M annual visits / $10M e-commerce)”
+    - “Delivered Salesforce and e-commerce platform replacements on-time, on-budget”
+    - “Launched visitor-guide mobile app and mission-driven marketing campaigns”

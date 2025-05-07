@@ -1,27 +1,58 @@
 ---
 layout: default
-title: {{ site.name }}
+title: “Home”
 ---
 
-<div id="home">
-  <h1>Updates</h1>
+<section id="about">
+  <h2>About</h2>
+  <p>I’m Bryan Barnes, Director of Digital Strategy at UMBC. I build seamless experiences that turn clicks into conversations.</p>
+</section>
 
-<h4>March 14, 2017</h4>
-<p>I've launched <a href="http://baltimorevegans.com" target="_blank">baltimorevegans.com</a>! My goal is to provide organization and promotion of vegan culture and events in the Baltimore area.  It was a priority for me to use resources that already exist, like vibrant Facebook communities and events, rather than creating duplicate work.  As we move forward, we'll be populating the site with more vegan resources and events.</p>
+<section id="experience" class="mt-12">
+  <h2>Experience</h2>
+  {% for exp in site.data.experiences %}
+    <div class="mb-8">
+      <h3 class="text-2xl">{{ exp.title }} ({{ exp.dates }})</h3>
+      <p class="italic">{{ exp.company }} · {{ exp.location }}</p>
+      <ul class="list-disc list-inside">
+        {% for b in exp.bullets %}<li>{{ b }}</li>{% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</section>
 
-<h4>December 13, 2016</h4>
-<p>One of the more fun projects of my year was working on this new webcam, featuring <a href="http://aqua.org/explore/baltimore/exhibits-experiences/jellies-invasion" target="_blank">Blue Blubber Jellyfish</a>!</p>
+<section id="projects" class="mt-12">
+  <h2>Projects</h2>
 
-<h4>November 4, 2016</h4>
-<p>I have completed the migration of <a href="https://hillkiller.com" target="_blank">hillkiller.com</a> from Magento 1.9 to Shopify.  We are already seeing SEO optimizations and the inventory integration with Amazon, Ebay and other 3rd party sellers is improving operations time!</p>
-
-<br />
-
-<!--   <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+  <h3>Featured</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {% assign featured = site.projects | where: "featured", true | sort: "date" | reverse %}
+    {% for p in featured %}
+      <a href="{{ p.url }}" class="block p-4 border rounded hover:shadow">
+        <h4 class="font-semibold">{{ p.title }}</h4>
+        <p class="text-sm">{{ p.excerpt }}</p>
+      </a>
     {% endfor %}
-  </ul>
--->
+  </div>
 
-</div>
+  <h3 class="mt-8">Side Hustles</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {% assign side = site.projects | where_exp:"p","p.tags contains 'side-hustle'" %}
+    {% for p in side %}
+      <a href="{{ p.url }}" class="block p-4 border rounded hover:shadow">
+        <h4 class="font-semibold">{{ p.title }}</h4>
+        <p class="text-sm">{{ p.excerpt }}</p>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="contact" class="mt-12">
+  <h2>Contact</h2>
+  <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
+    <label>Name<br><input type="text" name="name" required class="w-full border p-2"></label>
+    <label>Email<br><input type="email" name="email" required class="w-full border p-2"></label>
+    <label>Message<br><textarea name="message" rows="4" required class="w-full border p-2"></textarea></label>
+    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Send</button>
+  </form>
+</section>

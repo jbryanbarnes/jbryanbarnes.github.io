@@ -1,25 +1,15 @@
-# Setup
-title:        Bryan Barnes - Portfolio
-tagline:      At some point, this will be a portfolio of my work.
-baseurl:      ""
-paginate:     1
+title: “Bryan Barnes”  
+email: “jbryanbarnes@gmail.com”  
+linkedin: “https://linkedin.com/in/jbryanbarnes”  
 
-# About/contact
-author:
-  name:       Bryan Barnes
-  url:        http://jbryanbarnes.com 
+collections:  
+  projects:  
+    output: true  
+    permalink: /projects/:name/  
 
-# Gems
-gems:
-  - jekyll-paginate
-
-#Others
-markdown: kramdown
-
-
-# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
-social:
-  - title: linkedin
-    url: https://linkedin.com/in/jbryanbarnes
-  - title: github
-    url: https://github.com/jbryanbarnes
+defaults:  
+  - scope:  
+      path: “”  
+      type: projects  
+    values:  
+      layout: project  
