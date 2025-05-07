@@ -7,9 +7,15 @@ module.exports = {
     theme: {
       extend: {
         colors: {
-          primary: "#005f80",
-          secondary: "#fdb515",
-          accent: "#e5e7eb"
+          primary: "#000000",
+          secondary: "#ffffff",
+          secondary_spring_summer: "#DF4601",
+          secondary_summer_fall: "241773",
+          secondary_fall_winter: "EO3A3E",
+          accent: "#666666",
+          accent_spring_summer: "#000000",
+          accent_summer_fall: "#000000",
+          accent_fall_winter: "#FFD520"
         },
         fontFamily: {
           sans: ["Inter", "system-ui", "sans-serif"]
