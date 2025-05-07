@@ -1,0 +1,29 @@
+- institution: Franklin High School
+  degree: High School Diploma
+  location: Reisterstown, MD
+  dates: Graduated 1997
+
+- institution: University of Maryland, College Park
+  degree: Bachelor of Arts, Philosophy
+  location: College Park, MD
+  dates: 1997 – 2001
+
+- institution: Google
+  certification: Google Analytics Individual Qualification
+  date: 2018
+
+- institution: Google
+  certification: Google Tag Manager Individual Qualification
+  date: 2019
+
+- institution: Google
+  certification: Google Analytics 4 Individual Qualification
+  date: 2023
+
+- institution: Salesforce Trailhead
+  certification: Marketing Cloud Email Specialist
+  date: 2020
+
+- institution: Salesforce Trailhead
+  certification: Sales Cloud Consultant
+  date: 2021

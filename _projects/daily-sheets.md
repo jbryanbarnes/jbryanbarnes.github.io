@@ -1,11 +1,12 @@
 ---
-title: “Sports Analytics Dashboard”
+title: Daily Sheets
 date: 2024-10-01
 tags:
-  - umbc
   - side-hustle
-excerpt: “Built a real-time sports analytics dashboard with React, Tailwind and Recharts.”
-featured: true
+  - analytics
+  - python
+excerpt: Create and maintain a sports-betting database with front-end community analytics at https://sheet.today.
+featured: false
 ---
 
-This project lets me wrangle game data, build visualizations and share insights with fellow sports geeks. It lives at https://sheet.today and uses a custom Flask API for live updates.
+Built a Flask-backed web interface that ingests data from Google Sheets, scrapes odds and lets fellow bettors share insights and visualizations.

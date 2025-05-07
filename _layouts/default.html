@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ page.title | default: site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body class="prose mx-auto p-6">
+  <header class="mb-12">
+    <h1 class="text-4xl font-bold text-primary">{{ site.title }}</h1>
+    <p>
+      <a href="{{ site.linkedin }}" class="underline">LinkedIn</a>,
+      <a href="mailto:{{ site.email }}" class="underline">Email</a>
+    </p>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer class="mt-12 text-sm text-gray-500">
+    Built with Tailwind & Jekyll
+  </footer>
+</body>
+</html>

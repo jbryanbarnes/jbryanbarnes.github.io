@@ -1,20 +1,20 @@
 ---
 layout: default
-title: “Home”
+title: Home
 ---
 
 <section id="about">
-  <h2>About</h2>
+  <h2 class="text-3xl font-bold">About</h2>
   <p>I’m Bryan Barnes, Director of Digital Strategy at UMBC. I build seamless experiences that turn clicks into conversations.</p>
 </section>
 
 <section id="experience" class="mt-12">
-  <h2>Experience</h2>
+  <h2 class="text-3xl font-bold">Experience</h2>
   {% for exp in site.data.experiences %}
     <div class="mb-8">
-      <h3 class="text-2xl">{{ exp.title }} ({{ exp.dates }})</h3>
-      <p class="italic">{{ exp.company }} · {{ exp.location }}</p>
-      <ul class="list-disc list-inside">
+      <h3 class="text-2xl font-semibold">{{ exp.title }}</h3>
+      <p class="italic">{{ exp.company }} · {{ exp.dates }} · {{ exp.location }}</p>
+      <ul class="list-disc list-inside mt-2">
         {% for b in exp.bullets %}<li>{{ b }}</li>{% endfor %}
       </ul>
     </div>
@@ -22,37 +22,59 @@ title: “Home”
 </section>
 
 <section id="projects" class="mt-12">
-  <h2>Projects</h2>
+  <h2 class="text-3xl font-bold">Projects</h2>
 
-  <h3>Featured</h3>
+  <h3 class="mt-6 text-2xl">UMBC &amp; Professional</h3>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {% assign featured = site.projects | where: "featured", true | sort: "date" | reverse %}
-    {% for p in featured %}
-      <a href="{{ p.url }}" class="block p-4 border rounded hover:shadow">
-        <h4 class="font-semibold">{{ p.title }}</h4>
-        <p class="text-sm">{{ p.excerpt }}</p>
+    {% assign prof = site.projects
+         | where_exp:"p","p.tags contains 'umbc'"
+         | sort: "date"
+         | reverse %}
+    {% for p in prof %}
+      <a href="{{ p.url }}" class="block border rounded overflow-hidden hover:shadow-lg">
+        <img src="/assets/images/projects/{{ p.slug }}.png"
+             alt="{{ p.title }}"
+             class="w-full h-40 object-cover bg-gray-100" style="object-position: top;">
+        <div class="p-4">
+          <h4 class="font-semibold text-lg">{{ p.title }}</h4>
+          <p class="text-sm mt-1">{{ p.excerpt }}</p>
+        </div>
       </a>
     {% endfor %}
   </div>
 
-  <h3 class="mt-8">Side Hustles</h3>
+  <h3 class="mt-8 text-2xl">Side Hustles</h3>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {% assign side = site.projects | where_exp:"p","p.tags contains 'side-hustle'" %}
+    {% assign side = site.projects
+         | where_exp:"p","p.tags contains 'side-hustle'"
+         | sort: "date"
+         | reverse %}
     {% for p in side %}
-      <a href="{{ p.url }}" class="block p-4 border rounded hover:shadow">
-        <h4 class="font-semibold">{{ p.title }}</h4>
-        <p class="text-sm">{{ p.excerpt }}</p>
+      <a href="{{ p.url }}" class="block border rounded overflow-hidden hover:shadow-lg">
+        <img src="/assets/images/projects/{{ p.slug }}.png"
+             alt="{{ p.title }}"
+             class="w-full h-40 object-cover bg-gray-100" style="object-position: top;">
+        <div class="p-4">
+          <h4 class="font-semibold text-lg">{{ p.title }}</h4>
+          <p class="text-sm mt-1">{{ p.excerpt }}</p>
+        </div>
       </a>
     {% endfor %}
   </div>
 </section>
 
 <section id="contact" class="mt-12">
-  <h2>Contact</h2>
+  <h2 class="text-3xl font-bold">Contact</h2>
   <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
-    <label>Name<br><input type="text" name="name" required class="w-full border p-2"></label>
-    <label>Email<br><input type="email" name="email" required class="w-full border p-2"></label>
-    <label>Message<br><textarea name="message" rows="4" required class="w-full border p-2"></textarea></label>
-    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Send</button>
+    <label>Name<br>
+      <input type="text" name="name" required class="w-full border p-2">
+    </label>
+    <label>Email<br>
+      <input type="email" name="email" required class="w-full border p-2">
+    </label>
+    <label>Message<br>
+      <textarea name="message" rows="4" required class="w-full border p-2"></textarea>
+    </label>
+    <button type="submit" class="px-4 py-2 bg-primary text-white rounded">Send</button>
   </form>
 </section>

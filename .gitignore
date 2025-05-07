@@ -1,0 +1,17 @@
+# Node modules
+node_modules/
+
+# Tailwind build output
+assets/css/style.css
+
+# Jekyll build folders
+_site/
+.sass-cache/
+.jekyll-cache/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+
+# macOS
+.DS_Store
