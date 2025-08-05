@@ -140,10 +140,76 @@
         0 4px 16px rgba(0, 0, 0, 0.08),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
       min-width: 200px;
-      display:flex;
+      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .theme-switcher.collapsed {
+      width: 60px;
+      height: 60px;
+      min-width: 60px;
+      padding: 0;
+      border-radius: 50%;
+    }
+
+    .theme-switcher.collapsed .theme-content {
+      opacity: 0;
+      transform: scale(0.8);
+      pointer-events: none;
+    }
+
+    .theme-switcher.collapsed .theme-toggle {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .theme-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.3s ease;
+      width: 100%;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: var(--text-primary);
+      font-size: 1.2rem;
+      z-index: 1;
+    }
+
+    .theme-switcher.collapsed .theme-toggle {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .theme-switcher.collapsed .theme-toggle:hover {
+      transform: translate(-50%, -50%) scale(1.1);
     }
 
     .theme-switcher button {
@@ -247,19 +313,24 @@
   </footer>
 
   <!-- Theme Switcher -->
-  <div class="theme-switcher">
-    <div class="text-white text-sm font-medium mb-2">Theme</div>
-    <button class="theme-btn active" data-theme="auto">Auto</button>
-    <button class="theme-btn" data-theme="fall">Fall/Winter</button>
-    <button class="theme-btn" data-theme="winter">Winter/Spring</button>
-    <button class="theme-btn" data-theme="spring">Spring/Summer</button>
-    <button class="theme-btn" data-theme="off">Off</button>
+  <div class="theme-switcher collapsed">
+    <button class="theme-toggle" aria-label="Toggle theme switcher">🎨</button>
+    <div class="theme-content">
+      <div class="text-white text-sm font-medium mb-2">Theme</div>
+      <button class="theme-btn active" data-theme="auto">Auto</button>
+      <button class="theme-btn" data-theme="fall">Fall/Winter</button>
+      <button class="theme-btn" data-theme="winter">Winter/Spring</button>
+      <button class="theme-btn" data-theme="spring">Spring/Summer</button>
+      <button class="theme-btn" data-theme="off">Off</button>
+    </div>
   </div>
 
   <script>
     (function() {
       const root = document.documentElement;
       const themeBtns = document.querySelectorAll('.theme-btn');
+      const themeSwitcher = document.querySelector('.theme-switcher');
+      const themeToggle = document.querySelector('.theme-toggle');
 
       // Theme configurations with enhanced color coordination
       const themes = {
@@ -345,6 +416,19 @@
           // Apply theme
           applyTheme(btn.dataset.theme);
         });
+      });
+
+      // Toggle theme switcher
+      themeToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        themeSwitcher.classList.toggle('collapsed');
+      });
+
+      // Close theme switcher when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!themeSwitcher.contains(e.target)) {
+          themeSwitcher.classList.add('collapsed');
+        }
       });
     })();
   </script>
