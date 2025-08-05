@@ -12,7 +12,7 @@ title: Home
       <div>
         <h2 class="text-4xl font-extrabold mb-4 gradient-text">I'm Bryan Barnes</h2>
         <p class="text-lg leading-relaxed text-white">
-          I build seamless experiences that turn ideas into action. 
+          I build seamless digital experiences that turn ideas into action. 
         </p>
       </div>
       <div class="mt-6 md:mt-0 flex justify-center md:justify-end">
@@ -86,7 +86,7 @@ title: Home
       <h2 class="text-4xl font-extrabold mb-8 gradient-text">Projects</h2>
 
       <!-- UMBC & Professional -->
-      <h3 class="text-2xl font-semibold mb-4 text-white">UMBC & Professional</h3>
+      <h3 class="text-2xl font-semibold mb-4 gradient-text">UMBC & Professional</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {% assign prof = site.projects | where_exp:"p","p.tags contains 'umbc'" | sort:"date" | reverse %}
         {% for p in prof %}
@@ -96,16 +96,16 @@ title: Home
             alt="{{ p.title }}"
             class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform"
           />
-          <div class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-4 group-hover:bg-opacity-100 transition">
-            <h4 class="font-semibold text-black">{{ p.title }}</h4>
-            <p class="text-sm mt-1 text-black">{{ p.excerpt }}</p>
+          <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 backdrop-blur-sm p-4 group-hover:bg-opacity-90 transition">
+            <h4 class="font-semibold text-white">{{ p.title }}</h4>
+            <p class="text-sm mt-1 text-gray-200">{{ p.excerpt }}</p>
           </div>
         </a>
         {% endfor %}
       </div>
 
       <!-- Side Hustles -->
-      <h3 class="text-2xl font-semibold mt-12 mb-4 text-white">Side Hustles</h3>
+      <h3 class="text-2xl font-semibold mt-12 mb-4 gradient-text">Side Hustles</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {% assign side = site.projects | where_exp:"p","p.tags contains 'side-hustle'" | sort:"date" | reverse %}
         {% for p in side %}
@@ -115,9 +115,9 @@ title: Home
             alt="{{ p.title }}"
             class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform"
           />
-          <div class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-4 group-hover:bg-opacity-100 transition">
-            <h4 class="font-semibold text-black">{{ p.title }}</h4>
-            <p class="text-sm mt-1 text-black">{{ p.excerpt }}</p>
+          <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 backdrop-blur-sm p-4 group-hover:bg-opacity-90 transition">
+            <h4 class="font-semibold text-white">{{ p.title }}</h4>
+            <p class="text-sm mt-1 text-gray-200">{{ p.excerpt }}</p>
           </div>
         </a>
         {% endfor %}
