@@ -2,7 +2,7 @@
 
 A Jekyll-powered portfolio website built by Bryan Barnes using Tailwind CSS, hosted on GitHub Pages using GitHub Actions for automated deployment.
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Ruby (3.1 or higher)
@@ -28,7 +28,7 @@ A Jekyll-powered portfolio website built by Bryan Barnes using Tailwind CSS, hos
 3. **Visit your site:**
    - Local: http://localhost:4000
 
-## 🛠 Development Commands
+## Development Commands
 
 ```bash
 # Build CSS only
@@ -44,7 +44,7 @@ npm run dev
 npm run build
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ├── .github/workflows/    # GitHub Actions deployment
@@ -68,7 +68,7 @@ npm run build
 └── tailwind.config.js   # Tailwind configuration
 ```
 
-## 🎨 Customization
+## Customization
 
 ### Colors
 Edit seasonal color schemes in `tailwind.config.js`:
@@ -84,7 +84,7 @@ Edit seasonal color schemes in `tailwind.config.js`:
 ### Layout
 The site uses a seasonal gradient system that automatically changes based on the current month.
 
-## 🌐 Deployment
+## Deployment
 
 ### Automated Deployment (GitHub Actions)
 The site automatically deploys to GitHub Pages when you push to the main branch using GitHub Actions:
@@ -110,7 +110,7 @@ git commit -m "Update site"
 git push origin main
 ```
 
-## 🚨 Troubleshooting
+## Troubleshooting
 
 ### CSS not loading?
 1. Check if Tailwind config has syntax errors
@@ -127,7 +127,7 @@ git push origin main
 2. Verify Node.js and Ruby versions in workflow
 3. Ensure all dependencies are properly configured
 
-## 📝 Notes
+## Notes
 
 - **No Gemfile**: Using GitHub Actions for dependency management
 - **Automated Build**: CSS and site build handled by GitHub Actions

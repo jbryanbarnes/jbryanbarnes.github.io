@@ -7,33 +7,56 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
   <style>
-    /* your "master" gradient stops */
+    /* Master gradient stops */
     :root {
       --grad-from: #000000;
-      --grad-to:   #DF4601; /* default for spring_summer */
+      --grad-to: #DF4601;
+      --glass-bg: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.95);
+      --text-muted: rgba(255, 255, 255, 0.8);
+      --heading-light: rgba(255, 255, 255, 0.98);
     }
 
-    /* full-page animated BG */
+    /* Full-page animated background */
     .gradient-bg {
       background: linear-gradient(
         90deg,
         var(--grad-from),
         var(--grad-to)
-      )  no-repeat center;
+      ) no-repeat center;
       background-size: 200% 200%;
       animation: shift-gradient 30s ease infinite;
     }
 
-    /* text cut-out version */
+    /* Enhanced Apple-style glass effect */
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+    }
+
+    /* Enhanced gradient text with better contrast */
     .gradient-text {
       background: linear-gradient(
-        90deg,
-        var(--grad-from),
-        var(--grad-to)
+        135deg,
+        var(--heading-light) 0%,
+        rgba(255, 255, 255, 0.95) 50%,
+        rgba(255, 255, 255, 0.9) 100%
       );
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      font-weight: 800;
     }
 
     /* Animation keyframes for subtle movement */
@@ -49,32 +72,124 @@
       }
     }
 
-    /* Ensure text is readable on dark backgrounds */
+    /* Enhanced theme switcher styles */
+    .theme-switcher {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      z-index: 1000;
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 1.25rem;
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      min-width: 200px;
+    }
+
+    .theme-switcher button {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      margin: 0.25rem;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .theme-switcher button:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .theme-switcher button.active {
+      background: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Enhanced animation control */
+    .animation-control {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      z-index: 1001;
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: 50%;
+      width: 3.5rem;
+      height: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      margin-left: 220px;
+    }
+
+    .animation-control:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.15),
+        0 6px 20px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    /* Enhanced text contrast */
     .text-primary {
-      color: white !important;
+      color: var(--text-primary) !important;
     }
 
-    /* Override black text on dark backgrounds */
-    .bg-white.bg-opacity-20 .text-black,
-    .bg-white.bg-opacity-20 h2,
-    .bg-white.bg-opacity-20 h3,
-    .bg-white.bg-opacity-20 h4,
-    .bg-white.bg-opacity-20 p,
-    .bg-white.bg-opacity-20 li {
-      color: white !important;
+    .text-secondary {
+      color: var(--text-secondary) !important;
     }
 
-    /* Ensure gradient text is visible */
-    .gradient-text {
-      background: linear-gradient(
-        90deg,
-        var(--grad-from),
-        var(--grad-to)
-      );
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
+    .text-muted {
+      color: var(--text-muted) !important;
+    }
+
+    /* Improved glass card text with better contrast */
+    .glass-card h1,
+    .glass-card h2,
+    .glass-card h3,
+    .glass-card h4,
+    .glass-card h5,
+    .glass-card h6 {
+      color: var(--heading-light) !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .glass-card p,
+    .glass-card li {
+      color: var(--text-primary) !important;
+    }
+
+    /* Enhanced section backgrounds */
+    .section-glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -82,9 +197,7 @@
     }
   </style>
 </head>
-<body
-  class="min-h-screen gradient-bg"
->
+<body class="min-h-screen gradient-bg">
   <header class="relative">
     <!-- HERO -->
     <section id="hero" class="py-24 text-center">
@@ -96,17 +209,9 @@
           Director of Digital Strategy at UMBC
         </p>
         <p class="mt-2 text-white space-x-4">
-          <a href="{{ site.linkedin }}" class="underline">LinkedIn</a>
-          <a href="mailto:{{ site.email }}"   class="underline">Email</a>
+          <a href="{{ site.linkedin }}" class="underline hover:text-gray-200 transition-colors">LinkedIn</a>
+          <a href="mailto:{{ site.email }}" class="underline hover:text-gray-200 transition-colors">Email</a>
         </p>
-        <!-- small pause/play ↕ -->
-        <button
-          id="toggleAnimation"
-          class="absolute top-6 right-6 p-1 bg-white bg-opacity-30 rounded-full text-black focus:outline-none"
-          aria-label="Pause animation"
-        >
-          ⏸
-        </button>
       </div>
     </section>
   </header>
@@ -115,40 +220,95 @@
     {{ content }}
   </main>
 
-  <footer class="mt-12 text-center text-sm text-gray-500">
+  <footer class="mt-12 text-center text-sm text-gray-300">
     Built with Tailwind & Jekyll, hosted by GitHub Pages
   </footer>
 
-  <script>
-    ;(function() {
-      const root = document.documentElement;
-      const btn  = document.getElementById('toggleAnimation');
+  <!-- Theme Switcher -->
+  <div class="theme-switcher">
+    <div class="text-white text-sm font-medium mb-2">Theme</div>
+    <button class="theme-btn active" data-theme="auto">Auto</button>
+    <button class="theme-btn" data-theme="spring">Spring</button>
+    <button class="theme-btn" data-theme="summer">Summer</button>
+    <button class="theme-btn" data-theme="fall">Fall</button>
+  </div>
 
-      // Map seasons → your theme colors
-      const seasons = {
-        spring_summer: { from: '#000000', to: '#DF4601' },
-        summer_fall:   { from: '#000000', to: '#241773' },
-        fall_winter:   { from: '#000000', to: '#E03A3E' }
+  <!-- Animation Control -->
+  <div class="animation-control" id="toggleAnimation" aria-label="Pause animation">
+    <span class="text-white text-lg font-bold">⏸</span>
+  </div>
+
+  <script>
+    (function() {
+      const root = document.documentElement;
+      const animationBtn = document.getElementById('toggleAnimation');
+      const themeBtns = document.querySelectorAll('.theme-btn');
+
+      // Theme configurations with enhanced color coordination
+      const themes = {
+        spring: { 
+          from: '#000000', 
+          to: '#DF4601',
+          glassBg: 'rgba(255, 255, 255, 0.08)',
+          glassBorder: 'rgba(255, 255, 255, 0.15)'
+        },
+        summer: { 
+          from: '#000000', 
+          to: '#241773',
+          glassBg: 'rgba(255, 255, 255, 0.1)',
+          glassBorder: 'rgba(255, 255, 255, 0.18)'
+        },
+        fall: { 
+          from: '#000000', 
+          to: '#E03A3E',
+          glassBg: 'rgba(255, 255, 255, 0.09)',
+          glassBorder: 'rgba(255, 255, 255, 0.16)'
+        },
+        auto: null
       };
 
-      // Decide season by month
-      const m = new Date().getMonth();
-      let key = 'spring_summer';
-      if (m >= 5 && m < 8)  key = 'summer_fall';
-      if (m >= 8 && m < 11) key = 'fall_winter';
+      // Apply theme
+      function applyTheme(themeName) {
+        let theme;
+        if (themeName === 'auto') {
+          const m = new Date().getMonth();
+          if (m >= 5 && m < 8) theme = themes.summer;
+          else if (m >= 8 && m < 11) theme = themes.fall;
+          else theme = themes.spring;
+        } else {
+          theme = themes[themeName];
+        }
 
-      // Apply CSS vars
-      const { from, to } = seasons[key];
-      root.style.setProperty('--grad-from', from);
-      root.style.setProperty('--grad-to',   to);
+        if (theme) {
+          root.style.setProperty('--grad-from', theme.from);
+          root.style.setProperty('--grad-to', theme.to);
+          root.style.setProperty('--glass-bg', theme.glassBg);
+          root.style.setProperty('--glass-border', theme.glassBorder);
+        }
+      }
 
-      // Pause / resume animation
+      // Initialize with auto theme
+      applyTheme('auto');
+
+      // Theme switcher
+      themeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Remove active class from all buttons
+          themeBtns.forEach(b => b.classList.remove('active'));
+          // Add active class to clicked button
+          btn.classList.add('active');
+          // Apply theme
+          applyTheme(btn.dataset.theme);
+        });
+      });
+
+      // Animation control
       let paused = false;
-      btn.addEventListener('click', () => {
+      animationBtn.addEventListener('click', () => {
         paused = !paused;
         document.body.style.animationPlayState = paused ? 'paused' : 'running';
-        btn.textContent = paused ? '▶' : '⏸';
-        btn.setAttribute('aria-label', paused ? 'Resume animation' : 'Pause animation');
+        animationBtn.innerHTML = paused ? '<span class="text-white text-lg font-bold">▶</span>' : '<span class="text-white text-lg font-bold">⏸</span>';
+        animationBtn.setAttribute('aria-label', paused ? 'Resume animation' : 'Pause animation');
       });
     })();
   </script>

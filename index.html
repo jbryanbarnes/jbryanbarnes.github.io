@@ -8,7 +8,7 @@ title: Home
   <!-- dark overlay so the backdrop-blur shows -->
   <div class="absolute inset-0 bg-black bg-opacity-20"></div>
   <div class="relative container mx-auto px-6">
-    <div class="bg-white bg-opacity-20 backdrop-blur-md rounded-lg p-8 md:grid md:grid-cols-2 gap-8 items-center">
+    <div class="glass-card p-8 md:grid md:grid-cols-2 gap-8 items-center">
       <div>
         <h2 class="text-4xl font-extrabold mb-4 gradient-text">About</h2>
         <p class="text-lg leading-relaxed text-white">
@@ -31,7 +31,7 @@ title: Home
 <section id="experience" class="relative py-16">
   <div class="absolute inset-0 bg-black bg-opacity-10"></div>
   <div class="relative container mx-auto px-6">
-    <div class="bg-white bg-opacity-20 backdrop-blur-md rounded-lg p-8">
+    <div class="glass-card p-8">
       <h2 class="text-4xl font-extrabold mb-8 gradient-text">Experience</h2>
       <div class="space-y-12">
         {% for exp in site.data.experiences %}
@@ -61,7 +61,7 @@ title: Home
 <section id="education" class="relative py-16">
   <div class="absolute inset-0 bg-black bg-opacity-10"></div>
   <div class="relative container mx-auto px-6">
-    <div class="bg-white bg-opacity-20 backdrop-blur-md rounded-lg p-8">
+    <div class="glass-card p-8">
       <h2 class="text-4xl font-extrabold mb-8 gradient-text">Education & Certifications</h2>
       <div class="space-y-6">
         {% for edu in site.data.education %}
@@ -83,7 +83,7 @@ title: Home
 <section id="projects" class="relative py-16">
   <div class="absolute inset-0 bg-black bg-opacity-10"></div>
   <div class="relative container mx-auto px-6">
-    <div class="bg-white bg-opacity-20 backdrop-blur-md rounded-lg p-8">
+    <div class="glass-card p-8">
       <h2 class="text-4xl font-extrabold mb-8 gradient-text">Projects</h2>
 
       <!-- UMBC & Professional -->
@@ -134,7 +134,7 @@ title: Home
     <form
       action="https://formspree.io/f/your-form-id"
       method="POST"
-      class="max-w-lg mx-auto space-y-4 bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-lg"
+      class="max-w-lg mx-auto space-y-4 glass-card p-6"
     >
       <label class="block">
         <span class="text-white">Name</span>
