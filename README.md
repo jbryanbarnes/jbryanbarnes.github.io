@@ -1,6 +1,6 @@
 # Portfolio Website
 
-A Jekyll-powered portfolio website with Tailwind CSS, hosted on GitHub Pages using GitHub Actions for automated deployment.
+A Jekyll-powered portfolio website built by Bryan Barnes using Tailwind CSS, hosted on GitHub Pages using GitHub Actions for automated deployment.
 
 ## 🚀 Quick Start
 
