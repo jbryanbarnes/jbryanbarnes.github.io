@@ -43,82 +43,88 @@
       border-radius: 16px;
     }
 
-    /* Enhanced gradient text with better contrast */
+    /* Enhanced gradient text with better contrast and less embossed appearance */
     .gradient-text {
       background: linear-gradient(
         135deg,
         #ffffff 0%,
-        rgba(255, 255, 255, 0.9) 25%,
-        rgba(255, 255, 255, 0.8) 50%,
-        rgba(255, 255, 255, 0.7) 75%,
-        rgba(255, 255, 255, 0.6) 100%
+        rgba(255, 255, 255, 0.98) 20%,
+        rgba(255, 255, 255, 0.95) 40%,
+        rgba(255, 255, 255, 0.9) 60%,
+        rgba(255, 255, 255, 0.85) 80%,
+        rgba(255, 255, 255, 0.8) 100%
       );
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       -webkit-text-fill-color: transparent;
       text-shadow: 
-        0 2px 8px rgba(0, 0, 0, 0.5),
-        0 4px 16px rgba(0, 0, 0, 0.3);
+        0 1px 2px rgba(0, 0, 0, 0.2),
+        0 2px 4px rgba(0, 0, 0, 0.15);
       font-weight: 800;
       position: relative;
     }
 
-    /* Enhanced gradient text with seasonal colors */
-    .gradient-text-spring {
-      background: linear-gradient(
-        135deg,
-        #ffffff 0%,
-        rgba(255, 255, 255, 0.95) 25%,
-        rgba(223, 70, 1, 0.9) 50%,
-        rgba(223, 70, 1, 0.8) 75%,
-        rgba(223, 70, 1, 0.7) 100%
-      );
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 
-        0 2px 8px rgba(0, 0, 0, 0.5),
-        0 4px 16px rgba(0, 0, 0, 0.3);
-      font-weight: 800;
-    }
-
-    .gradient-text-summer {
-      background: linear-gradient(
-        135deg,
-        #ffffff 0%,
-        rgba(255, 255, 255, 0.95) 25%,
-        rgba(36, 23, 115, 0.9) 50%,
-        rgba(36, 23, 115, 0.8) 75%,
-        rgba(36, 23, 115, 0.7) 100%
-      );
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 
-        0 2px 8px rgba(0, 0, 0, 0.5),
-        0 4px 16px rgba(0, 0, 0, 0.3);
-      font-weight: 800;
-    }
-
+    /* Enhanced gradient text with seasonal colors - Fall to Winter: Ravens Purple to Black */
     .gradient-text-fall {
       background: linear-gradient(
         135deg,
         #ffffff 0%,
-        rgba(255, 255, 255, 0.95) 25%,
-        rgba(224, 58, 62, 0.9) 50%,
-        rgba(224, 58, 62, 0.8) 75%,
-        rgba(224, 58, 62, 0.7) 100%
+        rgba(255, 255, 255, 0.95) 10%,
+        rgba(255, 215, 0, 0.9) 25%,
+        rgba(255, 255, 255, 0.8) 35%,
+        rgba(41, 23, 31, 0.9) 65%,
+        rgba(0, 0, 0, 0.95) 100%
       );
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       -webkit-text-fill-color: transparent;
       text-shadow: 
-        0 2px 8px rgba(0, 0, 0, 0.5),
-        0 4px 16px rgba(0, 0, 0, 0.3);
+        0 1px 3px rgba(0, 0, 0, 0.4),
+        0 2px 6px rgba(0, 0, 0, 0.3);
+      font-weight: 800;
+    }
+
+    /* Winter to Spring: Maryland Terrapins red, black, gold */
+    .gradient-text-winter {
+      background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        rgba(255, 255, 255, 0.95) 10%,
+        rgba(255, 215, 0, 0.9) 25%,
+        rgba(255, 255, 255, 0.8) 35%,
+        rgba(255, 0, 0, 0.9) 65%,
+        rgba(0, 0, 0, 0.95) 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 
+        0 1px 3px rgba(0, 0, 0, 0.4),
+        0 2px 6px rgba(0, 0, 0, 0.3);
+      font-weight: 800;
+    }
+
+    /* Spring to Summer: Orioles Orange to Black */
+    .gradient-text-spring {
+      background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        rgba(255, 255, 255, 0.95) 10%,
+        rgba(255, 255, 255, 0.8) 25%,
+        rgba(255, 140, 0, 0.9) 45%,
+        rgba(255, 69, 0, 0.9) 75%,
+        rgba(0, 0, 0, 0.95) 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 
+        0 1px 3px rgba(0, 0, 0, 0.4),
+        0 2px 6px rgba(0, 0, 0, 0.3);
       font-weight: 800;
     }
 
@@ -257,9 +263,9 @@
   <div class="theme-switcher">
     <div class="text-white text-sm font-medium mb-2">Theme</div>
     <button class="theme-btn active" data-theme="auto">Auto</button>
-    <button class="theme-btn" data-theme="spring">Spring</button>
-    <button class="theme-btn" data-theme="summer">Summer</button>
-    <button class="theme-btn" data-theme="fall">Fall</button>
+    <button class="theme-btn" data-theme="fall">Fall/Winter</button>
+    <button class="theme-btn" data-theme="winter">Winter/Spring</button>
+    <button class="theme-btn" data-theme="spring">Spring/Summer</button>
     <button class="theme-btn" data-theme="off">Off</button>
   </div>
 
@@ -271,27 +277,27 @@
       // Theme configurations with enhanced color coordination
       const themes = {
         spring: { 
-          from: '#000000', 
-          to: '#DF4601',
+          from: '#FF8C00', // Orioles Orange
+          to: '#000000',   // Black
           glassBg: 'rgba(255, 255, 255, 0.08)',
           glassBorder: 'rgba(255, 255, 255, 0.15)',
           gradientClass: 'gradient-text-spring',
           animation: 'running'
         },
-        summer: { 
-          from: '#000000', 
-          to: '#241773',
-          glassBg: 'rgba(255, 255, 255, 0.1)',
-          glassBorder: 'rgba(255, 255, 255, 0.18)',
-          gradientClass: 'gradient-text-summer',
-          animation: 'running'
-        },
         fall: { 
-          from: '#000000', 
-          to: '#E03A3E',
+          from: '#29171F', // Ravens Purple
+          to: '#000000',   // Black
           glassBg: 'rgba(255, 255, 255, 0.09)',
           glassBorder: 'rgba(255, 255, 255, 0.16)',
           gradientClass: 'gradient-text-fall',
+          animation: 'running'
+        },
+        winter: {
+          from: '#FF0000', // Maryland Terrapins Red
+          to: '#000000',   // Black
+          glassBg: 'rgba(255, 255, 255, 0.08)',
+          glassBorder: 'rgba(255, 255, 255, 0.15)',
+          gradientClass: 'gradient-text-winter',
           animation: 'running'
         },
         off: {
@@ -310,9 +316,9 @@
         let theme;
         if (themeName === 'auto') {
           const m = new Date().getMonth();
-          if (m >= 5 && m < 8) theme = themes.summer;
-          else if (m >= 8 && m < 11) theme = themes.fall;
-          else theme = themes.spring;
+          if (m >= 8 && m <= 10) theme = themes.fall;      // Sept-Nov: Fall/Winter
+          else if (m >= 11 || m <= 1) theme = themes.winter; // Dec-Feb: Winter/Spring
+          else theme = themes.spring;                       // Mar-Aug: Spring/Summer
         } else {
           theme = themes[themeName];
         }
@@ -330,7 +336,7 @@
           const gradientTexts = document.querySelectorAll('.gradient-text');
           gradientTexts.forEach(element => {
             // Remove existing seasonal classes
-            element.classList.remove('gradient-text-spring', 'gradient-text-summer', 'gradient-text-fall');
+            element.classList.remove('gradient-text-spring', 'gradient-text-fall', 'gradient-text-winter');
             // Add new seasonal class
             if (theme.gradientClass) {
               element.classList.add(theme.gradientClass);
