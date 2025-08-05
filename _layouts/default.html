@@ -43,24 +43,18 @@
       border-radius: 16px;
     }
 
-    /* Enhanced gradient text with better contrast and less embossed appearance */
+    /* Clean, modern gradient text without embossed/chromed effect */
     .gradient-text {
       background: linear-gradient(
         135deg,
         #ffffff 0%,
-        rgba(255, 255, 255, 0.98) 20%,
-        rgba(255, 255, 255, 0.95) 40%,
-        rgba(255, 255, 255, 0.9) 60%,
-        rgba(255, 255, 255, 0.85) 80%,
-        rgba(255, 255, 255, 0.8) 100%
+        rgba(255, 255, 255, 0.99) 100%
       );
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       -webkit-text-fill-color: transparent;
-      text-shadow: 
-        0 1px 2px rgba(0, 0, 0, 0.2),
-        0 2px 4px rgba(0, 0, 0, 0.15);
+      text-shadow: none;
       font-weight: 800;
       position: relative;
     }
@@ -70,19 +64,15 @@
       background: linear-gradient(
         135deg,
         #ffffff 0%,
-        rgba(255, 255, 255, 0.95) 10%,
-        rgba(255, 215, 0, 0.9) 25%,
-        rgba(255, 255, 255, 0.8) 35%,
-        rgba(41, 23, 31, 0.9) 65%,
-        rgba(0, 0, 0, 0.95) 100%
+        rgba(255, 215, 0, 0.8) 40%,
+        rgba(41, 23, 31, 0.8) 80%,
+        rgba(0, 0, 0, 0.9) 100%
       );
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       -webkit-text-fill-color: transparent;
-      text-shadow: 
-        0 1px 3px rgba(0, 0, 0, 0.4),
-        0 2px 6px rgba(0, 0, 0, 0.3);
+      text-shadow: none;
       font-weight: 800;
     }
 
@@ -91,19 +81,15 @@
       background: linear-gradient(
         135deg,
         #ffffff 0%,
-        rgba(255, 255, 255, 0.95) 10%,
-        rgba(255, 215, 0, 0.9) 25%,
-        rgba(255, 255, 255, 0.8) 35%,
-        rgba(255, 0, 0, 0.9) 65%,
-        rgba(0, 0, 0, 0.95) 100%
+        rgba(255, 215, 0, 0.8) 40%,
+        rgba(255, 0, 0, 0.8) 80%,
+        rgba(0, 0, 0, 0.9) 100%
       );
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       -webkit-text-fill-color: transparent;
-      text-shadow: 
-        0 1px 3px rgba(0, 0, 0, 0.4),
-        0 2px 6px rgba(0, 0, 0, 0.3);
+      text-shadow: none;
       font-weight: 800;
     }
 
@@ -112,19 +98,15 @@
       background: linear-gradient(
         135deg,
         #ffffff 0%,
-        rgba(255, 255, 255, 0.95) 10%,
-        rgba(255, 255, 255, 0.8) 25%,
-        rgba(255, 140, 0, 0.9) 45%,
-        rgba(255, 69, 0, 0.9) 75%,
-        rgba(0, 0, 0, 0.95) 100%
+        rgba(255, 140, 0, 0.8) 50%,
+        rgba(255, 69, 0, 0.8) 80%,
+        rgba(0, 0, 0, 0.9) 100%
       );
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       -webkit-text-fill-color: transparent;
-      text-shadow: 
-        0 1px 3px rgba(0, 0, 0, 0.4),
-        0 2px 6px rgba(0, 0, 0, 0.3);
+      text-shadow: none;
       font-weight: 800;
     }
 
@@ -198,7 +180,7 @@
       color: var(--text-muted) !important;
     }
 
-    /* Improved glass card text with better contrast */
+    /* Improved glass card text with clean, modern styling */
     .glass-card h1,
     .glass-card h2,
     .glass-card h3,
@@ -206,12 +188,13 @@
     .glass-card h5,
     .glass-card h6 {
       color: var(--heading-light) !important;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      text-shadow: none;
     }
 
     .glass-card p,
     .glass-card li {
       color: var(--text-primary) !important;
+      text-shadow: none;
     }
 
     /* Enhanced section backgrounds */
