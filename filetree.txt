@@ -1,0 +1,50 @@
+.
+├── .gitignore
+├── .github/
+│   └── workflows/
+│       └── pages.yml
+├── .jekyll-cache/
+├── .jekyll-metadata
+├── .bundle/
+├── vendor/
+├── node_modules/
+├── package.json
+├── package-lock.json
+├── tailwind.config.js
+├── postcss.config.js
+├── Gemfile.backup
+├── Gemfile.lock
+├── jbryanbarnes.github.io.code-workspace
+├── filetree.txt
+├── index.html
+├── _config.yml
+├── _data/
+│   ├── experiences.yml
+│   └── education.yml
+├── _projects/
+│   ├── daily-sheets.md
+│   ├── hill-killer-apparel.md
+│   ├── mobile-performance-optimization.md
+│   ├── photography.md
+│   ├── program-directory-overhaul.md
+│   ├── python-web-app.md
+│   └── umbc.edu.md
+├── _layouts/
+│   └── default.html
+├── src/
+│   └── css/
+│       └── tailwind.css
+├── assets/
+│   ├── css/
+│   │   └── style.css    (generated)
+│   └── images/
+│       ├── profile.png
+│       └── projects/
+│           ├── daily-sheets.png
+│           ├── hill-killer-apparel.png
+│           ├── mobile-performance-optimization.png
+│           ├── photography.png
+│           ├── program-directory-overhaul.png
+│           ├── python-web-app.png
+│           └── umbc.edu.png
+└── _site/               (generated)

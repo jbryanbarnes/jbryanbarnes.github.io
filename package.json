@@ -1,0 +1,16 @@
+{
+    "name": "jbryanbarnes.github.io",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "build:css": "tailwindcss -i src/css/tailwind.css -o assets/css/style.css --minify",
+        "watch:css": "tailwindcss -i src/css/tailwind.css -o assets/css/style.css --watch",
+        "dev": "npm run build:css && bundle exec jekyll serve --livereload",
+        "build": "npm run build:css && bundle exec jekyll build"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.21",
+        "postcss": "^8.5.3",
+        "tailwindcss": "^3.4.17"
+    }
+}

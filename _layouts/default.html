@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ page.title | default: site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  <style>
+    /* your "master" gradient stops */
+    :root {
+      --grad-from: #000000;
+      --grad-to:   #DF4601; /* default for spring_summer */
+    }
+
+    /* full-page animated BG */
+    .gradient-bg {
+      background: linear-gradient(
+        90deg,
+        var(--grad-from),
+        var(--grad-to)
+      )  no-repeat center;
+      background-size: 200% 200%;
+      animation: shift-gradient 30s ease infinite;
+    }
+
+    /* text cut-out version */
+    .gradient-text {
+      background: linear-gradient(
+        90deg,
+        var(--grad-from),
+        var(--grad-to)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Animation keyframes for subtle movement */
+    @keyframes shift-gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Ensure text is readable on dark backgrounds */
+    .text-primary {
+      color: white !important;
+    }
+
+    /* Override black text on dark backgrounds */
+    .bg-white.bg-opacity-20 .text-black,
+    .bg-white.bg-opacity-20 h2,
+    .bg-white.bg-opacity-20 h3,
+    .bg-white.bg-opacity-20 h4,
+    .bg-white.bg-opacity-20 p,
+    .bg-white.bg-opacity-20 li {
+      color: white !important;
+    }
+
+    /* Ensure gradient text is visible */
+    .gradient-text {
+      background: linear-gradient(
+        90deg,
+        var(--grad-from),
+        var(--grad-to)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .gradient-bg { animation: none !important; }
+    }
+  </style>
+</head>
+<body
+  class="min-h-screen gradient-bg"
+>
+  <header class="relative">
+    <!-- HERO -->
+    <section id="hero" class="py-24 text-center">
+      <div class="container mx-auto px-6">
+        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold gradient-text">
+          Bryan Barnes
+        </h1>
+        <p class="mt-4 text-lg md:text-xl text-white">
+          Director of Digital Strategy at UMBC
+        </p>
+        <p class="mt-2 text-white space-x-4">
+          <a href="{{ site.linkedin }}" class="underline">LinkedIn</a>
+          <a href="mailto:{{ site.email }}"   class="underline">Email</a>
+        </p>
+        <!-- small pause/play ↕ -->
+        <button
+          id="toggleAnimation"
+          class="absolute top-6 right-6 p-1 bg-white bg-opacity-30 rounded-full text-black focus:outline-none"
+          aria-label="Pause animation"
+        >
+          ⏸
+        </button>
+      </div>
+    </section>
+  </header>
+
+  <main class="space-y-16">
+    {{ content }}
+  </main>
+
+  <footer class="mt-12 text-center text-sm text-gray-500">
+    Built with Tailwind & Jekyll, hosted by GitHub Pages
+  </footer>
+
+  <script>
+    ;(function() {
+      const root = document.documentElement;
+      const btn  = document.getElementById('toggleAnimation');
+
+      // Map seasons → your theme colors
+      const seasons = {
+        spring_summer: { from: '#000000', to: '#DF4601' },
+        summer_fall:   { from: '#000000', to: '#241773' },
+        fall_winter:   { from: '#000000', to: '#E03A3E' }
+      };
+
+      // Decide season by month
+      const m = new Date().getMonth();
+      let key = 'spring_summer';
+      if (m >= 5 && m < 8)  key = 'summer_fall';
+      if (m >= 8 && m < 11) key = 'fall_winter';
+
+      // Apply CSS vars
+      const { from, to } = seasons[key];
+      root.style.setProperty('--grad-from', from);
+      root.style.setProperty('--grad-to',   to);
+
+      // Pause / resume animation
+      let paused = false;
+      btn.addEventListener('click', () => {
+        paused = !paused;
+        document.body.style.animationPlayState = paused ? 'paused' : 'running';
+        btn.textContent = paused ? '▶' : '⏸';
+        btn.setAttribute('aria-label', paused ? 'Resume animation' : 'Pause animation');
+      });
+    })();
+  </script>
+</body>
+</html>

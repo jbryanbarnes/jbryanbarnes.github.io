@@ -1,0 +1,43 @@
+title: Bryan Barnes
+email: jbryanbarnes@gmail.com
+linkedin: https://linkedin.com/in/jbryanbarnes
+url: "https://jbryanbarnes.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# No plugins - let GitHub Pages use defaults
+# plugins:
+#   - jekyll-sitemap
+#   - jekyll-feed
+#   - jekyll-seo-tag
+
+# Collections
+collections:  
+  projects:  
+    output: true  
+    permalink: /projects/:name/  
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+
+# Development
+livereload: true
+incremental: true
+
+# Exclude from processing
+exclude:
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - tailwind.config.js
+  - postcss.config.js
+  - src/
