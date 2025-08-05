@@ -181,13 +181,7 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) scale(0);
       opacity: 0;
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -204,7 +198,6 @@
     }
 
     .theme-toggle:hover {
-      background: rgba(255, 255, 255, 0.25);
       transform: translate(-50%, -50%) scale(1.1);
     }
 
@@ -314,7 +307,7 @@
 
   <!-- Theme Switcher -->
   <div class="theme-switcher collapsed">
-    <button class="theme-toggle" aria-label="Toggle theme switcher">🎨</button>
+    <button class="theme-toggle" aria-label="Toggle theme switcher">Themes</button>
     <div class="theme-content">
       <div class="text-white text-sm font-medium mb-2">Theme</div>
       <button class="theme-btn active" data-theme="auto">Auto</button>
