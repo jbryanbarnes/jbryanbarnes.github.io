@@ -166,9 +166,9 @@
     }
 
     .theme-switcher.collapsed {
-      width: 80px;
-      height: 80px;
-      min-width: 80px;
+      width: 60px;
+      height: 60px;
+      min-width: 60px;
       padding: 0;
       border-radius: 50%;
     }
@@ -211,8 +211,6 @@
       cursor: pointer;
       transition: all 0.3s ease;
       color: var(--text-primary);
-      font-size: 0.875rem;
-      font-weight: 500;
       z-index: 1;
     }
 
@@ -228,6 +226,12 @@
 
     .theme-switcher.collapsed .theme-toggle:hover {
       transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    .theme-toggle svg {
+      width: 24px;
+      height: 24px;
+      color: currentColor;
     }
 
     .theme-switcher button {
@@ -461,7 +465,13 @@
 
   <!-- Theme Switcher -->
   <div class="theme-switcher collapsed">
-    <button class="theme-toggle" aria-label="Toggle theme switcher">Themes</button>
+    <button class="theme-toggle" aria-label="Toggle theme switcher">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="m-auto h-4 w-4 text-foreground" aria-hidden="true">
+        <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+        <line x1="8" x2="16" y1="21" y2="21"></line>
+        <line x1="12" x2="12" y1="17" y2="21"></line>
+      </svg>
+    </button>
     <div class="theme-content">
       <div class="text-white text-sm font-medium mb-2">Theme</div>
       <button class="theme-btn active" data-theme="auto">Auto</button>
