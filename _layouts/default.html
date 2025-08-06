@@ -59,8 +59,8 @@
       position: relative;
     }
 
-    /* Enhanced gradient text with seasonal colors - Fall to Winter: Ravens Purple to Black */
-    .gradient-text-fall {
+    /* Enhanced gradient text with seasonal colors - Ravens (Fall to Winter) */
+    .gradient-text-ravens {
       background: linear-gradient(
         135deg,
         #ffffff 0%,
@@ -76,13 +76,13 @@
       font-weight: 800;
     }
 
-    /* Winter to Spring: Maryland Terrapins red, black, gold */
-    .gradient-text-winter {
+    /* Orioles (Spring to Summer) */
+    .gradient-text-orioles {
       background: linear-gradient(
         135deg,
         #ffffff 0%,
-        rgba(255, 215, 0, 0.8) 40%,
-        rgba(255, 0, 0, 0.8) 80%,
+        rgba(255, 140, 0, 0.8) 50%,
+        rgba(255, 69, 0, 0.8) 80%,
         rgba(0, 0, 0, 0.9) 100%
       );
       -webkit-background-clip: text;
@@ -93,13 +93,13 @@
       font-weight: 800;
     }
 
-    /* Spring to Summer: Orioles Orange to Black */
-    .gradient-text-spring {
+    /* Terps (Winter to Spring) */
+    .gradient-text-terps {
       background: linear-gradient(
         135deg,
         #ffffff 0%,
-        rgba(255, 140, 0, 0.8) 50%,
-        rgba(255, 69, 0, 0.8) 80%,
+        rgba(255, 215, 0, 0.8) 40%,
+        rgba(255, 0, 0, 0.8) 80%,
         rgba(0, 0, 0, 0.9) 100%
       );
       -webkit-background-clip: text;
@@ -166,9 +166,9 @@
     }
 
     .theme-switcher.collapsed {
-      width: 60px;
-      height: 60px;
-      min-width: 60px;
+      width: 80px;
+      height: 80px;
+      min-width: 80px;
       padding: 0;
       border-radius: 50%;
     }
@@ -181,7 +181,7 @@
 
     .theme-switcher.collapsed .theme-toggle {
       opacity: 1;
-      transform: scale(1);
+      transform: translate(-50%, -50%) scale(1);
     }
 
     .theme-content {
@@ -198,14 +198,21 @@
       position: absolute;
       top: 50%;
       left: 50%;
+      transform: translate(-50%, -50%) scale(0);
       opacity: 0;
+      background: transparent;
+      border: none;
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       transition: all 0.3s ease;
       color: var(--text-primary);
-      font-size: 1.2rem;
+      font-size: 0.875rem;
+      font-weight: 500;
       z-index: 1;
     }
 
@@ -215,11 +222,12 @@
     }
 
     .theme-toggle:hover {
-      transform: translate(-50%, -50%) scale(1.1);
+      background: rgba(255, 255, 255, 0.1);
+      transform: translate(-50%, -50%) scale(1.05);
     }
 
     .theme-switcher.collapsed .theme-toggle:hover {
-      transform: translate(-50%, -50%) scale(1.1);
+      transform: translate(-50%, -50%) scale(1.05);
     }
 
     .theme-switcher button {
@@ -457,9 +465,9 @@
     <div class="theme-content">
       <div class="text-white text-sm font-medium mb-2">Theme</div>
       <button class="theme-btn active" data-theme="auto">Auto</button>
-      <button class="theme-btn" data-theme="fall">Fall/Winter</button>
-      <button class="theme-btn" data-theme="winter">Winter/Spring</button>
-      <button class="theme-btn" data-theme="spring">Spring/Summer</button>
+      <button class="theme-btn" data-theme="ravens">Ravens</button>
+      <button class="theme-btn" data-theme="orioles">Orioles</button>
+      <button class="theme-btn" data-theme="terps">Terps</button>
       <button class="theme-btn" data-theme="off">Off</button>
     </div>
   </div>
@@ -473,28 +481,28 @@
 
       // Theme configurations with enhanced color coordination
       const themes = {
-        spring: { 
+        ravens: { 
+          from: '#29171F', // Ravens Purple
+          to: '#000000',   // Black
+          glassBg: 'rgba(255, 255, 255, 0.08)',
+          glassBorder: 'rgba(255, 255, 255, 0.15)',
+          gradientClass: 'gradient-text-ravens',
+          animation: 'running'
+        },
+        orioles: { 
           from: '#FF8C00', // Orioles Orange
           to: '#000000',   // Black
           glassBg: 'rgba(255, 255, 255, 0.08)',
           glassBorder: 'rgba(255, 255, 255, 0.15)',
-          gradientClass: 'gradient-text-spring',
+          gradientClass: 'gradient-text-orioles',
           animation: 'running'
         },
-        fall: { 
-          from: '#29171F', // Ravens Purple
-          to: '#000000',   // Black
-          glassBg: 'rgba(255, 255, 255, 0.09)',
-          glassBorder: 'rgba(255, 255, 255, 0.16)',
-          gradientClass: 'gradient-text-fall',
-          animation: 'running'
-        },
-        winter: {
+        terps: {
           from: '#FF0000', // Maryland Terrapins Red
           to: '#000000',   // Black
           glassBg: 'rgba(255, 255, 255, 0.08)',
           glassBorder: 'rgba(255, 255, 255, 0.15)',
-          gradientClass: 'gradient-text-winter',
+          gradientClass: 'gradient-text-terps',
           animation: 'running'
         },
         off: {
@@ -513,9 +521,9 @@
         let theme;
         if (themeName === 'auto') {
           const m = new Date().getMonth();
-          if (m >= 8 && m <= 10) theme = themes.fall;      // Sept-Nov: Fall/Winter
-          else if (m >= 11 || m <= 1) theme = themes.winter; // Dec-Feb: Winter/Spring
-          else theme = themes.spring;                       // Mar-Aug: Spring/Summer
+          if (m >= 8 && m <= 10) theme = themes.ravens;      // Sept-Nov: Ravens (Fall)
+          else if (m >= 11 || m <= 1) theme = themes.terps;   // Dec-Feb: Terps (Winter)
+          else theme = themes.orioles;                         // Mar-Aug: Orioles (Spring/Summer)
         } else {
           theme = themes[themeName];
         }
@@ -533,7 +541,7 @@
           const gradientTexts = document.querySelectorAll('.gradient-text');
           gradientTexts.forEach(element => {
             // Remove existing seasonal classes
-            element.classList.remove('gradient-text-spring', 'gradient-text-fall', 'gradient-text-winter', 'gradient-text-off');
+            element.classList.remove('gradient-text-ravens', 'gradient-text-orioles', 'gradient-text-terps', 'gradient-text-off');
             // Add new seasonal class
             if (theme.gradientClass) {
               element.classList.add(theme.gradientClass);
