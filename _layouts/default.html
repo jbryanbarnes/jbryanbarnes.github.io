@@ -58,13 +58,22 @@
       border-radius: 16px;
     }
 
-    /* Clean, modern gradient text without embossed/chromed effect */
-    .gradient-text {
+    /* Clean, modern gradient text — base only applies when no seasonal modifier is active */
+    .gradient-text:not(.gradient-text-ravens):not(.gradient-text-orioles):not(.gradient-text-terps):not(.gradient-text-off) {
       background: linear-gradient(
         135deg,
         #ffffff 0%,
         rgba(255, 255, 255, 0.99) 100%
       );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-shadow: none;
+      font-weight: 800;
+      position: relative;
+    }
+    .gradient-text {
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
